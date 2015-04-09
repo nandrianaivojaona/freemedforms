@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE FreeMedForms>
+
+<FreeMedForms>
+  <PMHx>
+    <Category icon="__theme__/stethoscope.png" uuid="Maternity::Pmh" sortId="0">
+      <label lang="xx">Risk factors</label>
+      <label lang="fr">Facteurs de risque</label>
+      <extra>
+        <file>__subForms__/maternity/cardiology/riskfactors</file>
+      </extra>
+    </Category>
+	 <Category icon="__theme__/stethoscope.png" uuid="Maternity::Pmh::Personal" sortId="1">
+      <label lang="xx">Personal</label>
+      <label lang="fr">Personnel</label>
+	 </Category>
+      <Category icon="__theme__/stethoscope.png" uuid="Maternity::Pmh::Personal::Medical"  sortId="0">
+        <label lang="xx">Medical</label>
+        <label lang="fr">Médicaux</label>
+      </Category>
+      <Category icon="__theme__/stethoscope.png" uuid="Maternity::Pmh::Personal::Surgical"  sortId="1">
+        <label lang="xx">Surgical</label>
+        <label lang="fr">Chirurgicaux</label>
+        <label lang="de">Chirurgisch</label>
+      </Category>
+	<Category icon="__theme__/stethoscope.png" uuid="Maternity::Pmh::Personal::Obstetric" sortId="2">
+      <label lang="xx">Obstetric</label>
+      <label lang="fr">gynéco-obstétricaux</label>
+      
+      <extra>
+        <file>__subForms__/maternity/gyneco</file>
+      </extra>
+    </Category>
+    <Category icon="__theme__/stethoscope.png" uuid="Maternity::Pmh::Pediatric" sortId="2">
+      <label lang="xx">Pediatric</label>
+      <label lang="fr">Pédiatrie</label>
+	  <extra>
+        <file>__subForms__/maternity/pediatrique</file>
+      </extra>
+    </Category>
+    <Category icon="__theme__/text.png" uuid="Maternity::Pmh" sortId="3">
+      <label lang="xx">Running Treatment</label>
+      <label lang="fr">Traitement en cours</label>
+	  <Item name="Traitement enc ours" type="longtext">
+       <label lang="xx">Running treatement</label>
+       <label lang="fr">Traitement en cours</label>
+       <value>
+        <default lang="xx">NIL</default>
+        <default lang="fr">AUCUN</default>
+       </value>
+      </Item>
+    </Category>
+	<Category icon="__theme__/stethoscope.png" uuid="Maternity::Pmh::Family"  sortId="4">
+      <label lang="xx">Family</label>
+      <label lang="fr">Familiaux</label>
+      <extra>
+        <file>__subForms__/maternity/family</file>
+      </extra>
+    </Category>
+	<Category icon="__theme__/stethoscope.png" uuid="Maternity::Pmh::Checkup"  sortId="5">
+      <label lang="xx">Checkup</label>
+      <label lang="fr">Bilan</label>
+      <extra>
+        <file>__subForms__/maternity/checkup</file>
+      </extra>
+    </Category>
+  </PMHx>
+</FreeMedForms>
+
