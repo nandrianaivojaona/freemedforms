@@ -75,7 +75,7 @@
     <label lang="fr">Pédiatrie</label>
     <icon>pediatrie.png</icon>
     <options>NoEpisode;DontPrintEmptyValues</options>
-<file>__subForms__/generic/maternity/pediatrie/central.xml</file>
+<file>__subForms__/maternity/pediatrie/central.xml</file>
   </MedForm>
 
   <MedForm name="Maternity::Gynecology">
@@ -83,7 +83,7 @@
     <label lang="fr">Gynécologie</label>
     <icon>gyneco.png</icon>
     <options>NoEpisode;DontPrintEmptyValues</options>
-    <file>__subForms__/generic/maternity/gynecology/central.xml</file>
+    <file>__subForms__/maternity/gynecology/central.xml</file>
   </MedForm>
      
   <MedForm name="Maternity::Anesthesiology">
@@ -91,7 +91,7 @@
     <label lang="fr">Anesthésie</label>
     <icon>anesthesie.png</icon>
     <options>NoEpisode;DontPrintEmptyValues</options>
-      <file>__subForms__/generic/maternity/anesthesy/central.xml</file>
+      <file>__subForms__/maternity/anesthesy/central.xml</file>
   </MedForm>
      
   <MedForm name="Maternity::Obtetrics">
@@ -99,7 +99,7 @@
     <label lang="fr">Obstétrique</label>
     <icon>osbtetric.png</icon>
     <options>NoEpisode;DontPrintEmptyValues</options>
-     <file>__subForms__/generic/maternity/obstetric/central.xml</file>
+     <file>__subForms__/maternity/obstetric/central.xml</file>
   </MedForm>
      
   <MedForm name="Maternity::ICD10">                                             
@@ -112,6 +112,6 @@
     <options>DontPrintEmptyValues</options>                                   
     </Item>                                                                     
   </MedForm>
-     <file>__subForms__/generic/maternity/patientfilesynthesis/central.xml</file>            
+     <file>__subForms__/maternity/patientfilesynthesis/central.xml</file>            
 
 </FreeMedForms>
