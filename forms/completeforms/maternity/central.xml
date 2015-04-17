@@ -217,7 +217,7 @@
       </MedForm>
   </MedForm>
   
-  <MedForm name="Maternity::Obtetrics">
+  <MedForm name="Maternity::Obstetrics">
     <label lang="xx">Obstetrics</label>
     <label lang="fr">Obstétrique</label>
     <icon>__theme__/stethoscope.png</icon>
