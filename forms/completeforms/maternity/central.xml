@@ -5,7 +5,7 @@
 
   <formdescription>
     <!-- Non translatable values -->
-    <authors>Eric Maeker, MD</authors>
+    <authors>Eric Maeker, MD -- Modified by PSF Team</authors>
     <version>test</version>
     <fmfv>0.9.6</fmfv>
     <cdate>2015-04-06</cdate> <!-- Modify by NYA -->
@@ -75,33 +75,37 @@
     <label lang="fr">Pédiatrie</label>
     <icon>pediatrie.png</icon>
     <options>NoEpisode;DontPrintEmptyValues</options>
-<file>__subForms__/maternity/pediatrie/central.xml</file>
+ 
+     <file>__subForms__/maternity/pediatrics/central.xml</file>
+ 
   </MedForm>
+	
+   
+  <!-- End Pediatrics --> 
 
-  <MedForm name="Maternity::Gynecology">
-    <label lang="xx">Gynecology</label>
+  <MedForm name="Maternity::Gyneacology">
+    <label lang="xx">Gyneacology</label>
     <label lang="fr">Gynécologie</label>
     <icon>gyneco.png</icon>
     <options>NoEpisode;DontPrintEmptyValues</options>
-    <file>__subForms__/maternity/gynecology/central.xml</file>
+    <file>__subForms__/maternity/gyneacology/central.xml</file>
   </MedForm>
      
-  <MedForm name="Maternity::Anesthesiology">
-    <label lang="xx">Anesthesiology</label>
+  <MedForm name="Maternity::Aneasthesiology">
+    <label lang="xx">Aneasthesiology</label>
     <label lang="fr">Anesthésie</label>
     <icon>anesthesie.png</icon>
     <options>NoEpisode;DontPrintEmptyValues</options>
-      <file>__subForms__/maternity/anaesthesiology/central.xml</file>
+      <file>__subForms__/maternity/aneasthesiology/central.xml</file>
   </MedForm>
-     
-  <MedForm name="Maternity::Obtetrics">
+    
+  <MedForm name="Maternity::Obstetrics">
     <label lang="xx">Obstetrics</label>
     <label lang="fr">Obstétrique</label>
     <icon>osbtetric.png</icon>
     <options>NoEpisode;DontPrintEmptyValues</options>
-     <file>__subForms__/maternity/obstetric/central.xml</file>
+       <file>__subForms__/maternity/obstetrics/central.xml</file>
   </MedForm>
-     
   <MedForm name="Maternity::ICD10">                                             
     <label lang="xx">ICD10 coding</label>                                       
     <label lang="fr">Codes CIM10</label>                                        
