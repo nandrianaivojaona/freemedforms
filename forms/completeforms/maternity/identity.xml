@@ -9,9 +9,9 @@
     <version>test</version>
     <fmfv>0.9.6</fmfv>
     <cdate>2012-09-03</cdate>
-    <lmdate>2015-03-23</lmdate>
+    <lmdate>2015-04-24</lmdate>
     <icon>generalpractitioner.png</icon>
-    <weblink/>
+    <weblink>https://github.com/maternite/freemedforms</weblink>
     <bibliography/>
 
     <!-- Translatable values -->

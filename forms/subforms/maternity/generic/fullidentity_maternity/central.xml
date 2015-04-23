@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+
 <!DOCTYPE FreeMedForms>
 
 <FreeMedForms>
@@ -9,7 +9,7 @@
     <version>test</version>
     <fmfv>0.9.6</fmfv>
     <cdate>2012-01-01</cdate>
-    <lmdate>2015-03-23</lmdate>
+    <lmdate>2015-04-24</lmdate>
     <icon>__theme__/identity.png</icon>
     <weblink></weblink>
     <bibliography/>
@@ -28,10 +28,10 @@
         <text lang="fr">
         Additions spécifiques pour la maternité Pavillon Sainte Fleur à Madagascar.
         </text>
-        <text lang="en">
-        Specific additions for Pavillon Sainte Fleur maternity care center, Madagscar.
+        <text lang="xx">
+        Specific additions for Pavillon Sainte Fleur maternity care center, Madagascar.
         </text>
-    </updateversion>
+      </updateversion>
       <updateversion from="0.8.4" to="0.9.1">
         <text lang="fr">
         Ajout du sous-formulaire: Données socio-démographiques
@@ -116,21 +116,19 @@
             </Item>
         </Item>
 
-        <Item type="detailswidget" name="FrDetails" uifilename="./ui/xx/social.ui">
+        <Item type="detailswidget" name="PSFDetails" uifilename="./ui/xx/psf.ui">
           <uilink label="" widget="" layout="identityLayout"/>
-          <country>FR</country>
-          <label lang="xx">Social insurance</label>
-          <label lang="fr">Sécurité sociale</label>
-          <extralabel>{Subs::Tools::Identity::FrGroup::NSS}</extralabel>
+          <country>MDG</country>
+          <label lang="xx">Pavillon Sainte Fleur specific identification</label>
+          <label lang="fr">Identifiants spécifiques Pavillon Sainte Fleur</label>
           <column>1</column>
           <options>DontPrintEmptyValues;SummaryFontBold</options>
 
-          <Item type="frenchnss" name="FrGroup::NSS">
-            <uilink label="socialNumberLabel" widget="" layout="socialNumberLayout"/>
-            <label lang="xx">Social insurance number</label>
-            <label lang="fr">Numéro de sécurité sociale</label>
+          <Item type="shorttext" name="PSFDetails::Ciel">
+            <uilink label="cielCodeLabel" widget="cielCodeEdit"/>
+            <label lang="xx">Ciel code</label>
+            <label lang="fr">Code ciel</label>
             <options>DontPrintEmptyValues</options>
-            <patientdata>SocialNumber</patientdata>
           </Item>
 
           <Item type="check" name="FrGroup::IsNSSOwner">
@@ -141,118 +139,13 @@
             <value><default>checked</default></value>
           </Item>
 
-          <Item type="shorttext" name="FrGroup::OwnerName">
-            <uilink label="ownerLabel" widget="ownerEdit"/>
-            <label lang="xx">Social number owner</label>
-            <label lang="fr">Propriétaire</label>
+          <Item type="shorttext" name="PSFDetails::PaperRecord">
+            <uilink label="paperRecordLabel" widget="paperRecordEdit"/>
+            <label lang="xx">Paper record number</label>
+            <label lang="fr">Numéro de dossier papier</label>
             <options>DontPrintEmptyValues</options>
-            <patientdata>SocialNumberOwnerFullName</patientdata>
           </Item>
 
-          <Item type="button" name="FrGroup::CreateDeclaration">
-            <uilink widget="declaration"/>
-            <label lang="xx">Formulaire Médecin Traitant</label>
-            <ToolTip lang="xx">Formulaire Médecin Traitant</ToolTip>
-            <icon>__theme__/carte_vitale.png</icon>
-            <script>
-              <onload>
-                // Enabled this button only if the FreeMedForms PDF object is available
-                freemedforms.forms.namespaceInUse = "Subs::Tools::Identity";
-                var item = freemedforms.forms.item("FrGroup::CreateDeclaration");
-                if (!item.isValid) {
-                    print("Error in identity form");
-                    return;
-                }
-                item.enabled = freemedforms.pdf.isAvailable;
-              </onload>
-              <onclicked>
-                  function _identity_france_declaration_med_traitant()
-                  {
-                      // get the fremedforms pdf worker
-                      var pdf = freemedforms.pdf;
-                      if (!pdf.isAvailable) {
-                          print("pdftk not available");
-                          return;
-                      }
-
-                      // process data
-                      var patient = freemedforms.patient;
-                      if (!patient.isActive) {
-                          print("not active patient");
-                          return;
-                      }
-
-                      pdf.beginFdfEncoding();
-
-                      freemedforms.forms.namespaceInUse = "Subs::Tools::Identity";
-                      var isNssOwner = freemedforms.forms.item("FrGroup::IsNSSOwner");
-                      if (!isNssOwner.isValid) {
-                          print("isNSSOwner not available");
-                          return;
-                      }
-                      var nss = freemedforms.forms.item("FrGroup::NSS");
-                      if (!nss.isValid) {
-                          print("NSS not available");
-                          return;
-                      }
-
-                      pdf.addFdfValue("nom", patient.usualName + " " + patient.otherNames);
-                      pdf.addFdfValue("prénom", patient.firstName);
-                      pdf.addFdfValue("date naissance", freemedforms.tools.dateToString(patient.dateOfBirth, "ddMMyyyy"));
-                      // TODO: split street into 2 max lines if required
-
-                      var street = patient.street;
-                      if (street.search("\n")) {
-                          var splitter = street.split("\n");
-                          pdf.addFdfValue("adresse1", splitter.shift());
-                          pdf.addFdfValue("adresse2", splitter.join(" ; "));
-                      } else {
-                          pdf.addFdfValue("adresse1", patient.street);
-                      }
-                      pdf.addFdfValue("adresse3", patient.city + " " + patient.zipcode + " " + patient.state);
-
-                      if (!isNssOwner.checked) {
-                          var owner = freemedforms.forms.item("FrGroup::OwnerName");
-                          if (!owner.isValid) {
-                              print("NSS owner not available");
-                              return;
-                          }
-                          pdf.addFdfValue("nom ben", owner.currentText);
-                          //pdf.addFdfValue("prénom ben", nss.currentText);
-                      }
-
-                      print(nss.currentText);
-
-                      if (nss.currentText.length == 15) {
-                          pdf.addFdfValue("n° immatriculation", nss.currentText.substring(0, 13));
-                          pdf.addFdfValue("clé immatric", nss.currentText.substring(13,15));
-                      }
-
-                      var user = freemedforms.user;
-                      if (user.isValid) {
-                          print("No valid user");
-                          //return;
-                      }
-
-                      pdf.addFdfValue("num ident med1", user.identifiants.join("; "));
-                      pdf.addFdfValue("nom medecin", user.usualName + " " + user.otherNames);
-                      pdf.addFdfValue("prénom médecin", user.firstName);
-                      pdf.addFdfValue("identif  medecin", user.fullAddress);
-
-                      pdf.addFdfValue("date déclaration", freemedforms.tools.dateToString(new Date(), "ddMMyyyy"));
-
-                      var filename = freemedforms.forms.extractFormFile("__subForms__/generic/fullidentity", "./pdf/fr/declaration.pdf");
-                      pdf.endFdfEncoding(filename);
-
-                      var output = freemedforms.tools.userDocumentPath + "declaration_" + patient.usualName + " " + patient.otherNames + " " + patient.firstName + ".pdf";
-                      output = output.replace("  ", " ");
-                      output = output.replace(" ", "_");
-                      pdf.fillPdfWithFdf(filename, pdf.getFdfContent(), output, "ISO-8859-1");
-                  }
-                  _identity_france_declaration_med_traitant();
-              </onclicked>
-            </script>
-          </Item>
         </Item>
 
         <Item type="detailswidget" name="ContactDetails" uifilename="./ui/xx/contact.ui">
