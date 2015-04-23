@@ -131,12 +131,23 @@
             <options>DontPrintEmptyValues</options>
           </Item>
 
-          <Item type="check" name="FrGroup::IsNSSOwner">
-            <uilink widget="isSINOwnerCheck"/>
-            <label lang="xx">Patient is the social insurance number owner</label>
-            <label lang="fr">Est le propriétaire du numéro de sécurité sociale</label>
-            <options>DontPrintEmptyValues</options>
-            <value><default>checked</default></value>
+          <Item type="radio" name="PSFDetails::PaperRecordConsultationOnly">
+            <uilink label="paperRecordConsultationOnlyLabel" widget="" layout="paperRecordConsultationOnlyLayout"/>
+            <label lang="xx">Consultation paper record only?</label>
+            <label lang="fr">Dossier papier de consultation seul?</label>
+            <options>compact</options>
+            <value>                                                         
+              <uuid id="0">yes</uuid>                                     
+              <uuid id="1">no</uuid>                                      
+              <possible id="0" lang="xx">Yes</possible>                   
+              <possible id="1" lang="xx">No</possible>                    
+              <print id="0" lang="xx">Only has a consultation paper record.</print>  
+              <print id="1" lang="xx">Has a full paper record.</print>
+              <possible id="0" lang="fr">Oui</possible>                   
+              <possible id="1" lang="fr">Non</possible>                   
+              <print id="0" lang="fr">A seulement un dossier papier de consultation.</print>          
+              <print id="1" lang="fr">A un dossier papier complet.</print>   
+             </value>  
           </Item>
 
           <Item type="shorttext" name="PSFDetails::PaperRecord">
