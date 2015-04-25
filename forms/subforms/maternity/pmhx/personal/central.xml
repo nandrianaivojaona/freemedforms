@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE FreeMedForms>
+<FreeMedForms>
+  <formdescription>
+  <!-- Non translatable values -->
+  <authors>Eric Maeker, MD</authors>
+  <version>test</version>
+  <fmfv>0.6.0</fmfv>
+  <cdate>2011-12-21</cdate>
+  <lmdate>2011-12-21</lmdate>
+  <icon></icon>
+  <weblink></weblink>
+  <bibliography pmid=""></bibliography>
+
+  <!-- Translatable values -->
+  <license>GPLv3</license>
+  <description lang="fr">Antécédent Personnel</description>
+  <description lang="xx">Personal PMHx</description>
+  <category lang="xx">PMHx</category>
+  <category lang="fr">PMHx</category>
+  <specialties lang="fr">Consultation</specialties>
+  <specialties lang="xx">Consultation</specialties>
+
+  </formdescription>
+  <MedForm type="form" name="Maternity::PMHx::Perso::Gyneco::Obstetric">
+	   <icon>__theme__/patienthistory.png</icon>
+        <label lang="xx">Gynecology PMHx</label>
+        <label lang="fr">ATCD Gyneco</label>
+     <options>UseFormNameAsNameSpace;DontPrintEmptyValues</options>  
+  <file>__subForms__/maternity/pmhx/personal/gyneco/central.xml</file> 
+  </MedForm>
+  <MedForm type="form" name="Maternity::PMHx::Perso::Med" icon="__theme__/patienthistory.png">
+        <label lang="xx">Medical</label>
+        <label lang="fr">Médicaux</label>
+        <extra>
+          <file>__subForms__/maternity/pmhx/personal/medical</file>
+        </extra>
+  </MedForm> 
+  <MedForm type="form" icon="__theme__/patienthistory.png" name="Maternity::PMHx::Perso::Allergy">
+          <label lang="xx">Allergy</label>
+          <label lang="fr">Allergie</label>
+          <extra>
+            <file>__subForms__/maternity/pmhx/personal/allergy</file>
+          </extra>
+    </MedForm>
+  <MedForm type="form" icon="__theme__/patienthistory.png" name="Maternity::PMHx::Perso::Surg">
+	    <label lang="xx">Surgical</label>
+        <label lang="fr">Chirurgicaux</label>
+        <extra>
+          <file>__subForms__/maternity/pmhx/personal/surgical</file>
+        </extra>
+    </MedForm>
+  <MedForm type="form" icon="__theme__/patienthistory.png" name="Maternity::PMHx::Perso::Transfusion">
+          <label lang="xx">Blood Transfusion</label>
+          <label lang="fr">ATCD de Transfusion</label>
+          <extra>
+          <file>__subForms__/maternity/pmhx/personal/transfusion</file>
+          </extra>
+  </MedForm>
+  <MedForm type="form" icon="__theme__/patienthistory.png" name="Maternity::PMHx::Perso::Toxic">
+            <label lang="xx">Toxic</label>
+            <label lang="fr">ATCD Toxiques</label>
+	        <extra>
+	          <file>__subForms__/maternity/pmhx/personal/toxic</file>
+	        </extra>
+    </MedForm>
+  <MedForm type="form" icon="__theme__/patienthistory.png" name="Maternity::PMHx::Perso::Current">
+	          <label lang="xx">Running traitment</label>
+	          <label lang="fr">Traitement en cours</label>
+   			<Item type="Longtext" name="Maternity::PMHx::Current">
+				  <label lang="xx">Current medicine</label>
+				  <label lang="fr">Traitement en cours</label>
+			</Item>
+  </MedForm> 
+</FreeMedForms>
+
+
